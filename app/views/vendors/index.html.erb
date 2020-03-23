@@ -1,7 +1,20 @@
 <h1>All Vendors</h1>
 
+<h2>Average Price of all sweets</h2>
+<%@totalprice = @vendorsweets.to_a.reduce(0) {|sum,sweet| sum + sweet.price} %>
+<%@totalsweets = @vendorsweets.to_a.count %>
+<%= @totalprice/@totalsweets %>
+
 <ul>
   <% @vendors.each do |vendor| %>
     <li><%= vendor.name %></li>
+    <%= link_to :name, vendors_path(@vendor) %>
+    <h2>average price for this vendor:</h2>
+    <br>
+    <br>
+    <h2>Average price for this vendor</h2>
+    <%vendortotal = vendor.vendorsweets.to_a.reduce(0) { |sum,sweet| sum + sweet.price } %>
+    <%vendorcount = vendor.vendorsweets.to_a.count%>
+    <%=vendortotal/vendorcount %>
   <% end  %>
 </ul>
