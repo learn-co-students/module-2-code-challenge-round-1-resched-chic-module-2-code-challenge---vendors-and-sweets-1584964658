@@ -1,0 +1,12 @@
+<h1>This is your vendor</h1>
+<p>Vendor's name</p>
+<%=@vendor.name%>
+<br>
+<br>
+<p>Vendors' sweets</p>
+<%=@vendor.sweets.to_a.each do |s| %>
+<%= link_to "Sweet:", sweet_path(s) %>
+<%=s.name%>
+<%end%>
+<br>
+<br>
